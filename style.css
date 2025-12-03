@@ -1,0 +1,140 @@
+/* style.css */
+
+/* Variáveis & Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+    --tu-orange: #FF3D00;
+}
+
+/* =========================================
+   Loader & Transitions
+   ========================================= */
+#loader {
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+@keyframes loader-bar-grow {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+.animate-loader-bar {
+    animation: loader-bar-grow 1.5s ease-out forwards;
+}
+
+/* =========================================
+   Animations & Effects
+   ========================================= */
+
+/* Fade In */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Marquee Infinito (Barra Animada) */
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+}
+.marquee-content {
+    display: flex;
+    align-items: center;
+    animation: marquee 30s linear infinite;
+    padding-right: 4rem;
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Sheen Effect (Brilho no botão) */
+@keyframes sheen-effect {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+.btn-sheen {
+    position: relative;
+    overflow: hidden;
+}
+.btn-sheen::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    animation: sheen-effect 3s infinite;
+    pointer-events: none;
+}
+
+/* Float Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Card Float Animation */
+@keyframes card-float {
+    0%, 100% { transform: translateY(0); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); }
+    50% { transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2); }
+}
+.animate-card-float {
+    animation: card-float 4s ease-in-out infinite;
+}
+
+/* Background Pattern */
+.bg-pattern-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Shadows Especiais +TU */
+.shadow-strong-glow {
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+}
+.dark .shadow-strong-glow {
+    box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+/* =========================================
+   Custom Scrollbar (Barra de Rolagem)
+   ========================================= */
+
+/* Para Firefox */
+html {
+    scrollbar-width: thin; /* Deixa fino */
+    scrollbar-color: var(--tu-orange) #1a1a1a; /* Cor da barra e do fundo */
+}
+
+/* Para Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 8px; /* Espessura fina */
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Fundo do trilho (escuro para contraste) */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--tu-orange); /* Cor Laranja */
+    border-radius: 10px; /* Arredondado */
+    border: 2px solid #1a1a1a; /* Pequena borda para dar respiro se quiser, ou remova para ser sólido */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e63600; /* Um laranja levemente mais escuro ao passar o mouse */
+}

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agência +TU | Marketing de Resultado</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        tu: {
+                            orange: '#FF3D00', // Laranja Neon +TU
+                            dark: '#050505',   // Preto Profundo
+                            card: '#121212',   // Fundo Cards Dark
+                            light: '#F8F9FA',  // Fundo Light
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 60px -10px rgba(0, 0, 0, 0.2), 0 5px 30px -5px rgba(0, 0, 0, 0.1)',
+                        'glow': '0 0 20px rgba(255, 61, 0, 0.2)', // Glow Laranja
+                        'neon': '0 0 15px rgba(255, 61, 0, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* CSS EXTRA PARA O CARROSSEL */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* CONFIGURAÇÃO DO LOOP INFINITO (JÁ EXISTENTE) */
+        .marquee-wrapper {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+        .marquee-normal {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            animation: marquee 40s linear infinite;
+        }
+        .marquee-reverse {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            animation: marquee-reverse 40s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        @keyframes marquee-reverse {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-tu-light text-gray-900 dark:bg-tu-dark dark:text-gray-100 font-sans transition-colors duration-300 antialiased overflow-x-hidden">
+
+    <div id="loader" class="fixed inset-0 bg-tu-light dark:bg-tu-dark flex flex-col items-center justify-center z-[9999]">
+        <div class="flex flex-col items-center">
+            <img src="img/logop.png" alt="+TU Logo" class="theme-logo w-32 h-auto mb-8 object-contain" />
+            <div class="w-48 h-1 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-tu-orange w-full animate-loader-bar origin-left"></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="fixed top-4 left-0 right-0 z-50 w-full px-4 transition-all duration-300">
+        <div class="container mx-auto max-w-7xl">
+            <div class="flex h-16 items-center justify-between bg-white/90 dark:bg-black/80 backdrop-blur-md border border-gray-200 dark:border-white/20 rounded-2xl px-6 shadow-soft">
+                <a href="#hero" class="block hover:opacity-80 transition-opacity">
+                    <img src="img/logop.png" alt="+TU Logo" class="theme-logo h-8 w-auto object-contain">
+                </a>
+                <nav class="hidden lg:block">
+                    <ul class="flex items-center gap-8">
+                        <li><a href="#quem-somos" class="text-sm font-medium hover:text-tu-orange transition-colors">Quem Somos</a></li>
+                        <li><a href="#servicos" class="text-sm font-medium hover:text-tu-orange transition-colors">Serviços</a></li>
+                        <li><a href="#diferenciais" class="text-sm font-medium hover:text-tu-orange transition-colors">Por que a +TU?</a></li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=5513000000000" target="_blank"
+                                class="btn-sheen bg-tu-orange text-white font-display font-bold py-2 px-6 rounded-xl flex items-center hover:bg-orange-600 transition-all text-sm shadow-glow">
+                                Iniciar Projeto
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="flex items-center gap-4 lg:hidden">
+                    <a href="https://api.whatsapp.com/send?phone=5513000000000"
+                        class="btn-sheen bg-tu-orange text-white font-bold py-2 px-4 rounded-xl text-xs font-display">
+                        WhatsApp
+                    </a>
+                    <button class="text-xl" id="hamburger-menu"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay fixed inset-0 bg-white/95 dark:bg-black/95 backdrop-blur-md z-[999] flex flex-col p-6 transition-transform duration-300 ease-in-out lg:hidden translate-x-full" id="mobile-menu-overlay">
+        <div class="flex justify-between items-center mb-12">
+            <img src="img/logop.png" alt="+TU Logo" class="theme-logo h-8 w-auto">
+            <button class="text-3xl" id="close-menu"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="flex-grow flex flex-col gap-8 text-center">
+            <a href="#quem-somos" class="text-2xl font-display font-bold hover:text-tu-orange">Quem Somos</a>
+            <a href="#servicos" class="text-2xl font-display font-bold hover:text-tu-orange">Serviços</a>
+            <a href="#diferenciais" class="text-2xl font-display font-bold hover:text-tu-orange">Por que a +TU?</a>
+        </nav>
+        <a href="https://api.whatsapp.com/send?phone=5513000000000"
+            class="btn-sheen w-full bg-tu-orange text-white py-4 rounded-xl font-display font-bold text-center text-lg shadow-neon">
+            Falar no WhatsApp
+        </a>
+    </div>
+
+    <main>
+        <section id="hero" class="relative overflow-hidden pt-28 pb-40 lg:pt-36 lg:pb-64 bg-[url('img/bg-mobile-light.png')] md:bg-[url('img/bg-desktop-light.png')] dark:bg-[url('img/bg-mobile-dark.png')] dark:md:bg-[url('img/bg-desktop-dark.png')] bg-cover bg-center bg-no-repeat z-10">
+            
+            <div class="absolute inset-0 bg-white/90 dark:bg-black/70 z-0 pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-7xl px-4 h-full relative z-10">
+                <div class="flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-0">
+
+                    <div class="w-full lg:w-2/3 z-10 fade-in-section text-center lg:text-left">
+                        
+                        <h1 class="font-display text-[1.7rem] leading-[1.1] sm:text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+                            Existe um <span class="text-tu-orange">erro silencioso</span> acabando com o potencial da sua marca.
+                            <span class="block mt-2 lg:mt-3">E talvez você ainda não tenha percebido.</span>
+                        </h1>
+                        
+                        <p class="text-[1rem] leading-[1.2] sm:text-lg text-gray-600 dark:text-gray-300 mb-8 font-light max-w-lg mx-auto lg:mx-0">
+                            Se o seu negócio não é lembrado, ele não é escolhido. A <strong>+TU</strong> nasceu para mudar isso.
+                        </p>
+                        
+                        <div class="flex flex-col justify-center lg:justify-start">
+                            <p class="font-display font-bold text-gray-900 dark:text-white mb-4 text-sm md:text-base uppercase tracking-wide">
+                                Quer aumentar presença, vendas e diferenciação?
+                            </p>
+                            <div class="flex justify-center lg:justify-start">
+                                <a href="https://api.whatsapp.com/send?phone=5513000000000"
+                                    class="btn-sheen bg-tu-orange text-white font-display font-bold py-4 px-10 rounded-xl hover:bg-orange-600 transition-all shadow-neon flex items-center justify-center gap-2 text-lg">
+                                    Falar com a +TU <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="relative w-full h-0 z-30"> 
+            <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden py-32 pointer-events-none">
+                
+                <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 rotate-6 md:rotate-2 scale-110 md:scale-125 bg-gray-900 dark:bg-black border-y border-tu-orange/50 py-5 overflow-hidden flex items-center shadow-xl opacity-100">
+                    <div class="marquee-wrapper w-full flex overflow-hidden">
+                        <div class="marquee-reverse flex shrink-0 items-center justify-start gap-6 pr-6 text-gray-500 font-display font-bold text-sm md:text-base uppercase tracking-widest">
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange/60 mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange/60 mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange/60 mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange/60 mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange/60 mr-3"></i> Lançamentos</span>
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange/60 mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange/60 mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange/60 mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange/60 mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange/60 mr-3"></i> Lançamentos</span>
+                        </div>
+                        <div class="marquee-reverse flex shrink-0 items-center justify-start gap-6 pr-6 text-gray-500 font-display font-bold text-sm md:text-base uppercase tracking-widest" aria-hidden="true">
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange/60 mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange/60 mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange/60 mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange/60 mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange/60 mr-3"></i> Lançamentos</span>
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange/60 mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange/60 mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange/60 mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange/60 mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange/60 mr-3"></i> Lançamentos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 -rotate-6 md:-rotate-2 scale-110 md:scale-125 bg-gray-900 dark:bg-black border-y-2 border-tu-orange py-5 overflow-hidden shadow-[0_0_50px_rgba(255,61,0,0.3)] z-10">
+                    <div class="marquee-wrapper w-full flex overflow-hidden">
+                        <div class="marquee-normal flex shrink-0 items-center justify-start gap-6 pr-6 text-white font-display font-bold text-sm md:text-base uppercase tracking-widest"> 
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange mr-3"></i> Lançamentos</span>
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange mr-3"></i> Lançamentos</span>
+                        </div>
+                        <div class="marquee-normal flex shrink-0 items-center justify-start gap-6 pr-6 text-white font-display font-bold text-sm md:text-base uppercase tracking-widest" aria-hidden="true">
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange mr-3"></i> Lançamentos</span>
+                            <span class="flex items-center"><i class="fas fa-fire text-tu-orange mr-3"></i> Branding</span>
+                            <span class="flex items-center"><i class="fas fa-hashtag text-tu-orange mr-3"></i> Social Media</span>
+                            <span class="flex items-center"><i class="fas fa-bullseye text-tu-orange mr-3"></i> Tráfego Pago</span>
+                            <span class="flex items-center"><i class="fas fa-video text-tu-orange mr-3"></i> Filmmaking</span>
+                            <span class="flex items-center"><i class="fas fa-rocket text-tu-orange mr-3"></i> Lançamentos</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+       <section id="quem-somos" class="py-24 bg-gray-50 dark:bg-[#050505] transition-colors duration-300 relative overflow-hidden">
+    
+    <div class="absolute inset-0 bg-pattern-dots opacity-[0.03] dark:opacity-[0.1] pointer-events-none"></div>
+    
+    <div class="container mx-auto max-w-7xl px-4 relative z-10">
+        
+        <div class="max-w-4xl mb-12 fade-in-section">
+            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
+                Nós entendemos a dor que <br>
+                <span class="text-tu-orange">você está vivendo.</span>
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 font-light border-l-4 border-tu-orange pl-6 leading-relaxed">
+                Porque ela também foi nossa.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 fade-in-section">
+
+            <div class="lg:col-span-8 bg-white dark:bg-[#121212] border border-gray-200 dark:border-white/10 p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="flex flex-wrap items-center gap-3 mb-8">
+                    <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest">Fundação: Abril 2024</span>
+                    <div class="h-px bg-gray-200 dark:bg-white/10 flex-grow"></div>
+                </div>
+                
+                <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                    Sócios & Donos de Bar
+                </h3>
+
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                    A <strong>+TU Agência</strong> foi criada por <span class="text-gray-900 dark:text-white font-semibold">Gabriel Costa</span>, <span class="text-gray-900 dark:text-white font-semibold">Guilherme Villani</span> e <span class="text-gray-900 dark:text-white font-semibold">Rogélio Alves</span>.
+                </p>
+                
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Todos empresários do setor gastronômico, enfrentávamos o mesmo problema: <span class="italic text-gray-800 dark:text-gray-200">"Agências que não acompanhavam o ritmo."</span>
+                </p>
+            </div>
+
+            <div class="lg:col-span-4 bg-gradient-to-br from-tu-orange to-[#cc3000] p-8 md:p-10 rounded-[2rem] shadow-glow text-white flex flex-col justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <h3 class="font-display text-xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-triangle-exclamation"></i> O que combatemos:
+                </h3>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-xmark text-white/50 mt-1"></i>
+                        <span class="font-medium text-white/90">Criativos insuficientes</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-xmark text-white/50 mt-1"></i>
+                        <span class="font-medium text-white/90">Campanhas fracas</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-xmark text-white/50 mt-1"></i>
+                        <span class="font-medium text-white/90">Falta de estratégia real</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-12 bg-white dark:bg-[#121212] border border-gray-200 dark:border-white/10 p-8 md:p-10 rounded-[2rem] shadow-sm flex flex-col md:flex-row gap-10">
+                
+                <div class="md:w-1/2 flex flex-col justify-center">
+                    <div class="mb-6">
+                        <h3 class="font-display text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                            DNA Operacional
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                            Foi dessa dor que nasceu a +TU. Uma agência criada por quem vive a operação, entende a pressão do faturamento e sabe como o marketing impacta o negócio.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 bg-gray-50 dark:bg-black/40 rounded-2xl p-6 border border-gray-100 dark:border-white/5">
+                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-4">Transformamos resultados para:</h4>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Consultórios</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Clínicas</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Lojas de Varejo</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Lançamentos</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Profissionais Liberais</span>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-white/10">
+                        <div class="flex items-center gap-3 text-tu-orange font-bold bg-tu-orange/5 border border-tu-orange/20 p-3 rounded-xl">
+                            <i class="fas fa-star"></i>
+                            <span>Bares e Restaurantes</span>
+                            <span class="ml-auto text-xs bg-tu-orange text-white px-2 py-1 rounded">Especialidade</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+        <section id="proposito" class="py-24 bg-white dark:bg-tu-dark relative overflow-hidden">
+            <div class="container mx-auto max-w-7xl px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="w-full lg:w-1/2 fade-in-section">
+                        <h2 class="font-display text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Seu negócio merece ser <span class="text-tu-orange">visto.</span><br>
+                            E merece ser <span class="text-tu-orange">escolhido.</span>
+                        </h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                            Ajudamos marcas a saírem da disputa por atenção e entrarem no jogo certo: <strong class="text-gray-900 dark:text-white">o da preferência.</strong>
+                        </p>
+                        <div class="flex flex-wrap items-center gap-6 text-gray-700 dark:text-gray-200 font-medium">
+                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> Estratégia</span>
+                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> Criatividade</span>
+                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> Execução Rápida</span>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 fade-in-section">
+                        <div class="relative rounded-2xl overflow-hidden group">
+                            <div class="absolute inset-0 bg-tu-orange/5 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+                            <img src="img/proposito.png" alt="Propósito +TU" class="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-24 bg-tu-light dark:bg-tu-card">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="mb-16 text-center fade-in-section">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-4 dark:text-white">Nossos Serviços</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Tudo o que sua marca precisa para se tornar impossível de ignorar.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 relative">
+                    <div class="relative bg-white dark:bg-black p-8 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:-translate-y-1 transition-transform fade-in-section">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-tu-orange text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-neon">
+                            <i class="fas fa-share-nodes"></i>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Social Media Completo</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Estratégia, legendas, roteiros, planejamento e calendário editorial.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative bg-white dark:bg-black p-8 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:-translate-y-1 transition-transform fade-in-section" style="animation-delay: 0.1s;">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-tu-orange text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-neon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Designer Dedicado</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Identidade visual, kits promocionais, posts, artes e campanhas com padrão profissional.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative bg-white dark:bg-black p-8 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:-translate-y-1 transition-transform fade-in-section" style="animation-delay: 0.2s;">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-tu-orange text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-neon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Filmmaker / Vídeo</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Reels, bastidores, captura de fotos profissional e vídeos de impacto.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative bg-white dark:bg-black p-8 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:-translate-y-1 transition-transform fade-in-section">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-tu-orange text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-neon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Gestão de Tráfego</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Campanhas estratégicas para aumentar alcance, reservas, vendas e faturamento.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative bg-white dark:bg-black p-8 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:-translate-y-1 transition-transform fade-in-section" style="animation-delay: 0.1s;">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-tu-orange text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-neon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Gerente de Contas</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Atendimento próximo, organização, alinhamentos e entregas pontuais.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative bg-white dark:bg-black p-8 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:-translate-y-1 transition-transform fade-in-section" style="animation-delay: 0.2s;">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-tu-orange text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-neon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Influenciadores</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Conexão com criadores regionais para ampliar visibilidade e atrair novos clientes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="py-24 bg-white dark:bg-tu-dark relative overflow-hidden select-none">
+             
+            <div class="absolute top-0 right-0 w-96 h-96 bg-tu-orange/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-tu-orange/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-[1920px] px-0 relative z-10">
+                
+                <div class="text-center max-w-4xl mx-auto mb-12 fade-in-section px-4">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 dark:text-white">
+                        Marketing que <span class="text-tu-orange">abre portas.</span> De verdade.
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                        A <strong class="text-gray-900 dark:text-white">+TU</strong> não nasceu na teoria. 
+                        Nasceu da prática e da necessidade de resultado todos os dias.
+                    </p>
+                </div>
+
+                <div id="infinite-drag-wrapper" class="overflow-x-hidden cursor-grab active:cursor-grabbing w-full no-scrollbar">
+                    
+                    <div id="infinite-track" class="flex gap-6 px-4 w-max">
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-layer-group text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Criativos em alta frequência</h3>
+                                <p class="text-white/90 text-sm">Volume com qualidade para sua marca não ser esquecida.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-chart-line text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Estratégia orientada a vendas</h3>
+                                <p class="text-white/90 text-sm">Converter seguidores em clientes reais.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1620641788421-7f1c33850552?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-fingerprint text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Conteúdo que gera memorização</h3>
+                                <p class="text-white/90 text-sm">Criamos narrativas que fixam na mente do seu consumidor.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-stopwatch text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Campanhas rápidas</h3>
+                                <p class="text-white/90 text-sm">Execução ágil para aproveitar todas as oportunidades.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-users text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Linguagem alinhada</h3>
+                                <p class="text-white/90 text-sm">Falamos a língua do seu público para gerar conexão.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-shield-heart text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Entregas consistentes</h3>
+                                <p class="text-white/90 text-sm">Sem "desculpas de agência". Cumprimos o que prometemos.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-layer-group text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Criativos em alta frequência</h3>
+                                <p class="text-white/90 text-sm">Volume com qualidade para sua marca não ser esquecida.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-chart-line text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Estratégia orientada a vendas</h3>
+                                <p class="text-white/90 text-sm">Converter seguidores em clientes reais.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1620641788421-7f1c33850552?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-fingerprint text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Conteúdo que gera memorização</h3>
+                                <p class="text-white/90 text-sm">Criamos narrativas que fixam na mente do seu consumidor.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-stopwatch text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Campanhas rápidas</h3>
+                                <p class="text-white/90 text-sm">Execução ágil para aproveitar todas as oportunidades.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-users text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Linguagem alinhada</h3>
+                                <p class="text-white/90 text-sm">Falamos a língua do seu público para gerar conexão.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[450px] w-[300px] md:w-[350px] flex-shrink-0 rounded-2xl overflow-hidden group shadow-lg hover:-translate-y-2 transition-transform duration-300 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-tu-orange/80 mix-blend-multiply z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
+                                <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-shield-heart text-2xl"></i></div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Entregas consistentes</h3>
+                                <p class="text-white/90 text-sm">Sem "desculpas de agência". Cumprimos o que prometemos.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section id="cases" class="py-24 bg-white dark:bg-[#050505] relative overflow-hidden transition-colors duration-300">
+    
+    <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-tu-orange/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 -translate-x-1/3"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gray-200 dark:bg-white/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 translate-x-1/3"></div>
+
+    <div class="container mx-auto max-w-7xl px-4 relative z-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start fade-in-section">
+            
+            <div>
+                <div class="mb-10">
+                    <span class="text-tu-orange font-bold tracking-widest text-xs uppercase mb-2 block">Performance Real</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                        Resultados que <br>
+                        <span class="relative inline-block">
+                            <span class="relative z-10">transformam o jogo.</span>
+                            <span class="absolute bottom-2 left-0 w-full h-3 bg-tu-orange/20 -z-0"></span>
+                        </span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-6 leading-relaxed">
+                        Não entregamos apenas posts. Entregamos métricas que fazem seu negócio crescer de verdade.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 hover:border-tu-orange/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-white dark:bg-black flex items-center justify-center text-tu-orange shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fas fa-arrow-trend-up text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Crescimento de Presença</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sua marca consolidada e com autoridade digital.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 hover:border-tu-orange/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-white dark:bg-black flex items-center justify-center text-tu-orange shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fas fa-sack-dollar text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Aumento de Vendas</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Estratégias focadas em conversão e ROI positivo.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 hover:border-tu-orange/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-white dark:bg-black flex items-center justify-center text-tu-orange shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Máquina de Leads</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Mais reservas, orçamentos e clientes no WhatsApp.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 hover:border-tu-orange/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-white dark:bg-black flex items-center justify-center text-tu-orange shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fas fa-palette text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Reposicionamento Visual</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Identidade profissional, moderna e consistente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-[#121212] p-8 md:p-10 rounded-[2.5rem] border border-gray-200 dark:border-white/10 relative overflow-hidden">
+                
+                <div class="mb-8 text-center md:text-left">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                        Quem confia na +TU?
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">
+                        Expertise validada em diversos segmentos.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    
+                    <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
+                        <i class="fas fa-utensils text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Restaurantes <br>& Bares</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
+                        <i class="fas fa-user-doctor text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Clínicas <br>& Consultórios</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
+                        <i class="fas fa-bag-shopping text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Lojas <br>de Varejo</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
+                        <i class="fas fa-rocket text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Novas <br>Marcas</span>
+                    </div>
+
+                    <div class="col-span-2 flex items-center justify-between p-6 rounded-2xl bg-gradient-to-r from-gray-900 to-black dark:from-white/10 dark:to-white/5 border border-gray-100 dark:border-white/5 text-white shadow-lg relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform">
+                        <div class="absolute inset-0 bg-tu-orange opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                        <div class="flex items-center gap-4 relative z-10">
+                            <div class="w-10 h-10 rounded-full bg-tu-orange flex items-center justify-center text-white">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block font-bold text-sm">Empreendedores</span>
+                                <span class="block text-xs text-gray-400 group-hover:text-white transition-colors">Em fase de expansão</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-arrow-right text-tu-orange relative z-10"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        
+
+<section id="contato" class="pt-12 pb-32 bg-white dark:bg-tu-dark text-center relative overflow-hidden">
+            
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-tu-orange/5 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-white via-transparent to-transparent dark:from-black dark:via-transparent dark:to-transparent z-0"></div>
+
+            <div class="container mx-auto max-w-5xl px-4 relative z-10 fade-in-section">
+                
+               
+
+                <div class="relative z-20 bg-white/50 dark:bg-black/40 backdrop-blur-sm border border-white/20 dark:border-white/5 rounded-3xl p-8 md:p-12 shadow-2xl">
+                    
+                    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
+                        Chegou a hora de fazer sua marca <br class="hidden md:block"> ser <span class="text-tu-orange">lembrada.</span>
+                    </h2>
+                    
+                    <div class="mb-10">
+                        <h3 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-200 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
+                            <span>E, principalmente...</span>
+                            <span class="relative inline-block mt-2 md:mt-0">
+                                <span class="absolute inset-0 bg-tu-orange -skew-x-6 rounded-lg shadow-glow transform"></span>
+                                <span class="relative text-white z-10 px-4 py-1 block">ser escolhida.</span>
+                            </span>
+                        </h3>
+                    </div>
+
+                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 font-light max-w-2xl mx-auto leading-relaxed">
+                        Pare de gastar energia com o que não traz retorno. Atendemos negócios que buscam crescimento consistente, estratégia e presença real.
+                    </p>
+
+                    <div class="flex flex-col items-center gap-6">
+                        
+                        <a href="https://api.whatsapp.com/send?phone=5513000000000" target="_blank"
+                            class="btn-sheen group relative inline-flex items-center gap-4 bg-tu-orange text-white font-display font-bold py-5 px-10 md:px-14 rounded-2xl text-lg md:text-xl hover:bg-orange-600 shadow-neon transform hover:-translate-y-1 transition-all border border-white/20">
+                            
+                            <span class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center group-hover:rotate-[20deg] transition-transform duration-300">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                            </span>
+                            
+                            <span>Falar com a +TU agora</span>
+                        </a>
+
+                        <p class="text-xs md:text-sm text-gray-400 dark:text-gray-500 font-medium tracking-wide flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                            Equipe disponível para análise do seu negócio
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white dark:bg-black pt-16 pb-8 text-sm relative">
+        <div class="container mx-auto max-w-6xl px-4 border-t border-gray-100 dark:border-white/10 pt-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="img/logop.png" alt="+TU Logo" class="theme-logo h-10 w-auto mb-6 opacity-90 object-contain">
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                        Agência focada em performance e branding para negócios reais. Do balcão para o digital.
+                    </p>
+                </div>
+
+                <div class="md:border-l md:border-gray-100 md:dark:border-white/10 md:pl-8">
+                    <h4 class="font-bold font-display text-gray-900 dark:text-white mb-6 text-lg relative inline-block">
+                        Menu
+                        <span class="absolute -left-8 top-1 h-4 w-1 bg-tu-orange hidden md:block"></span>
+                    </h4>
+                    <ul class="space-y-3 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                        <li><a href="#quem-somos" class="hover:text-tu-orange transition-colors"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Quem Somos</a></li>
+                        <li><a href="#servicos" class="hover:text-tu-orange transition-colors"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Serviços</a></li>
+                        <li><a href="#diferenciais" class="hover:text-tu-orange transition-colors"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Diferenciais</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:border-l md:border-gray-100 md:dark:border-white/10 md:pl-8">
+                    <h4 class="font-bold font-display text-gray-900 dark:text-white mb-6 text-lg relative inline-block">
+                        Contato
+                        <span class="absolute -left-8 top-1 h-4 w-1 bg-tu-orange hidden md:block"></span>
+                    </h4>
+                    <ul class="space-y-4 text-gray-500 dark:text-gray-400">
+                        <li class="flex items-center">
+                             <i class="fab fa-whatsapp text-tu-orange mr-3"></i>
+                            <span>(13) 00000-0000</span>
+                        </li>
+                        <li class="flex items-center">
+                             <i class="far fa-envelope text-tu-orange mr-3"></i>
+                            <a href="mailto:contato@agenciatu.com.br" class="hover:text-tu-orange transition-colors">contato@agenciatu.com.br</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:border-l md:border-gray-100 md:dark:border-white/10 md:pl-8">
+                    <h4 class="font-bold font-display text-gray-900 dark:text-white mb-6 text-lg relative inline-block">
+                        Social
+                        <span class="absolute -left-8 top-1 h-4 w-1 bg-tu-orange hidden md:block"></span>
+                    </h4>
+                    <div class="flex gap-3 text-gray-400">
+                        <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-white/5 flex items-center justify-center rounded hover:bg-tu-orange hover:text-white transition-all"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-white/5 flex items-center justify-center rounded hover:bg-tu-orange hover:text-white transition-all"><i class="fab fa-linkedin-in text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-400 pt-8 border-t border-gray-100 dark:border-white/5">
+                &copy; 2025 Agência +TU. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <button id="theme-toggle-btn"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform">
+        <i id="theme-toggle-sun" class="fas fa-sun"></i>
+        <i id="theme-toggle-moon" class="fas fa-moon hidden"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
