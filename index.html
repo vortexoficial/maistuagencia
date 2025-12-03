@@ -103,12 +103,12 @@
                 </a>
                 <nav class="hidden lg:block">
                     <ul class="flex items-center gap-8">
-                        <li><a href="#quem-somos" class="text-sm font-medium hover:text-tu-orange transition-colors">Quem Somos</a></li>
-                        <li><a href="#servicos" class="text-sm font-medium hover:text-tu-orange transition-colors">Serviços</a></li>
-                        <li><a href="#diferenciais" class="text-sm font-medium hover:text-tu-orange transition-colors">Por que a +TU?</a></li>
+                        <li><a href="#quem-somos" class="text-sm font-medium hover:text-tu-orange transition-colors" data-i18n="nav_about">Quem Somos</a></li>
+                        <li><a href="#servicos" class="text-sm font-medium hover:text-tu-orange transition-colors" data-i18n="nav_services">Serviços</a></li>
+                        <li><a href="#diferenciais" class="text-sm font-medium hover:text-tu-orange transition-colors" data-i18n="nav_diff">Por que a +TU?</a></li>
                         <li>
                             <a href="https://api.whatsapp.com/send?phone=5513000000000" target="_blank"
-                                class="btn-sheen bg-tu-orange text-white font-display font-bold py-2 px-6 rounded-xl flex items-center hover:bg-orange-600 transition-all text-sm shadow-glow">
+                                class="btn-sheen bg-tu-orange text-white font-display font-bold py-2 px-6 rounded-xl flex items-center hover:bg-orange-600 transition-all text-sm shadow-glow" data-i18n="nav_btn">
                                 Iniciar Projeto
                             </a>
                         </li>
@@ -131,12 +131,12 @@
             <button class="text-3xl" id="close-menu"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex-grow flex flex-col gap-8 text-center">
-            <a href="#quem-somos" class="text-2xl font-display font-bold hover:text-tu-orange">Quem Somos</a>
-            <a href="#servicos" class="text-2xl font-display font-bold hover:text-tu-orange">Serviços</a>
-            <a href="#diferenciais" class="text-2xl font-display font-bold hover:text-tu-orange">Por que a +TU?</a>
+            <a href="#quem-somos" class="text-2xl font-display font-bold hover:text-tu-orange" data-i18n="nav_about">Quem Somos</a>
+            <a href="#servicos" class="text-2xl font-display font-bold hover:text-tu-orange" data-i18n="nav_services">Serviços</a>
+            <a href="#diferenciais" class="text-2xl font-display font-bold hover:text-tu-orange" data-i18n="nav_diff">Por que a +TU?</a>
         </nav>
         <a href="https://api.whatsapp.com/send?phone=5513000000000"
-            class="btn-sheen w-full bg-tu-orange text-white py-4 rounded-xl font-display font-bold text-center text-lg shadow-neon">
+            class="btn-sheen w-full bg-tu-orange text-white py-4 rounded-xl font-display font-bold text-center text-lg shadow-neon" data-i18n="hero_btn">
             Falar no WhatsApp
         </a>
     </div>
@@ -154,20 +154,20 @@
                 <h1 class="font-display font-bold text-gray-900 dark:text-white mb-4 lg:mb-6
                            text-[1.9rem] leading-[1.1] 
                            lg:text-5xl 2xl:text-6xl lg:leading-[0.9]">
-                    Existe um <span class="text-tu-orange">erro silencioso</span> acabando com o potencial da sua marca.
-                    <span class="block mt-2 lg:mt-4">E talvez você ainda não tenha percebido.</span>
+                    <span data-i18n="hero_title_1">Existe um</span> <span class="text-tu-orange" data-i18n="hero_title_highlight">erro silencioso</span>
+                    <span class="block mt-2 lg:mt-4" data-i18n="hero_title_2">acabando com o potencial da sua marca.</span>
                 </h1>
                 
                 <p class="text-gray-600 dark:text-gray-300 font-light max-w-lg mx-auto lg:mx-0
                           text-base mb-6 leading-snug
                           lg:text-base 2xl:text-lg lg:mb-8 lg:leading-relaxed">
-                    Se o seu negócio não é lembrado, ele não é escolhido. A <strong>+TU</strong> nasceu para mudar isso.
+                    <span data-i18n="hero_subtitle_1">Se o seu negócio não é lembrado, ele não é escolhido. A</span> <strong>+TU</strong> <span data-i18n="hero_subtitle_2">nasceu para mudar isso.</span>
                 </p>
                 
                 <div class="flex flex-col items-center lg:items-start justify-center lg:justify-start">
                     <p class="font-display font-bold text-gray-900 dark:text-white uppercase tracking-wide
                               text-sm mb-3 
-                              lg:text-sm 2xl:text-base lg:mb-4">
+                              lg:text-sm 2xl:text-base lg:mb-4" data-i18n="hero_cta_text">
                         Quer aumentar presença, vendas e diferenciação?
                     </p>
                     <div class="flex justify-center lg:justify-start w-full md:w-auto">
@@ -177,7 +177,7 @@
                                    py-4 px-8 text-base
                                    lg:py-3 lg:px-8 lg:text-base
                                    2xl:py-4 2xl:px-10 2xl:text-lg">
-                            Falar com a +TU <i class="fas fa-arrow-right"></i>
+                            <span data-i18n="hero_btn">Falar com a +TU</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -263,11 +263,11 @@
         
         <div class="max-w-4xl mb-12 fade-in-section">
             <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
-                Nós entendemos a dor que 
+                <span data-i18n="about_title_1">Nós entendemos a dor que</span>
                 <br class="hidden md:block"> 
-                <span class="text-tu-orange">você está vivendo.</span>
+                <span class="text-tu-orange" data-i18n="about_title_highlight">você está vivendo.</span>
             </h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400 font-light border-l-4 border-tu-orange pl-6 leading-relaxed">
+            <p class="text-xl text-gray-600 dark:text-gray-400 font-light border-l-4 border-tu-orange pl-6 leading-relaxed" data-i18n="about_subtitle">
                 Porque ela também foi nossa.
             </p>
         </div>
@@ -276,19 +276,19 @@
 
             <div class="lg:col-span-8 bg-white dark:bg-[#121212] border border-gray-200 dark:border-white/10 p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300 group">
                 <div class="flex flex-wrap items-center gap-3 mb-8">
-                    <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest">Fundação: Abril 2024</span>
+                    <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest" data-i18n="about_foundation">Fundação: Abril 2024</span>
                     <div class="h-px bg-gray-200 dark:bg-white/10 flex-grow"></div>
                 </div>
                 
-                <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="about_founders_title">
                     Sócios & Donos de Bar
                 </h3>
 
-                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6" data-i18n="about_founders_text_1">
                     A <strong>+TU Agência</strong> foi criada por <span class="text-gray-900 dark:text-white font-semibold">Gabriel Costa</span>, <span class="text-gray-900 dark:text-white font-semibold">Guilherme Villani</span> e <span class="text-gray-900 dark:text-white font-semibold">Rogélio Alves</span>.
                 </p>
                 
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="about_founders_text_2">
                     Todos empresários do setor gastronômico, enfrentávamos o mesmo problema: <span class="italic text-gray-800 dark:text-gray-200">"Agências que não acompanhavam o ritmo."</span>
                 </p>
             </div>
@@ -297,21 +297,21 @@
                 <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <h3 class="font-display text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-triangle-exclamation"></i> O que combatemos:
+                    <i class="fas fa-triangle-exclamation"></i> <span data-i18n="about_fight_title">O que combatemos:</span>
                 </h3>
                 
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
                         <i class="fas fa-xmark text-white/50 mt-1"></i>
-                        <span class="font-medium text-white/90">Criativos insuficientes</span>
+                        <span class="font-medium text-white/90" data-i18n="about_fight_1">Criativos insuficientes</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="fas fa-xmark text-white/50 mt-1"></i>
-                        <span class="font-medium text-white/90">Campanhas fracas</span>
+                        <span class="font-medium text-white/90" data-i18n="about_fight_2">Campanhas fracas</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="fas fa-xmark text-white/50 mt-1"></i>
-                        <span class="font-medium text-white/90">Falta de estratégia real</span>
+                        <span class="font-medium text-white/90" data-i18n="about_fight_3">Falta de estratégia real</span>
                     </li>
                 </ul>
             </div>
@@ -320,31 +320,31 @@
                 
                 <div class="md:w-1/2 flex flex-col justify-center">
                     <div class="mb-6">
-                        <h3 class="font-display text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                        <h3 class="font-display text-3xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="about_dna_title">
                             DNA Operacional
                         </h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed" data-i18n="about_dna_desc">
                             Foi dessa dor que nasceu a +TU. Uma agência criada por quem vive a operação, entende a pressão do faturamento e sabe como o marketing impacta o negócio.
                         </p>
                     </div>
                 </div>
 
                 <div class="md:w-1/2 bg-gray-50 dark:bg-black/40 rounded-2xl p-6 border border-gray-100 dark:border-white/5">
-                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-4">Transformamos resultados para:</h4>
+                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-4" data-i18n="about_clients_title">Transformamos resultados para:</h4>
                     
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Consultórios</span>
-                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Clínicas</span>
-                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Lojas de Varejo</span>
-                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Lançamentos</span>
-                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium">Profissionais Liberais</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium" data-i18n="client_type_1">Consultórios</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium" data-i18n="client_type_2">Clínicas</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium" data-i18n="client_type_3">Lojas de Varejo</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium" data-i18n="client_type_4">Lançamentos</span>
+                        <span class="px-3 py-2 rounded-lg bg-white dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-600 dark:text-gray-300 text-sm font-medium" data-i18n="client_type_5">Profissionais Liberais</span>
                     </div>
 
                     <div class="mt-4 pt-4 border-t border-gray-200 dark:border-white/10">
                         <div class="flex items-center gap-3 text-tu-orange font-bold bg-tu-orange/5 border border-tu-orange/20 p-3 rounded-xl">
                             <i class="fas fa-star"></i>
-                            <span>Bares e Restaurantes</span>
-                            <span class="ml-auto text-xs bg-tu-orange text-white px-2 py-1 rounded">Especialidade</span>
+                            <span data-i18n="client_type_special">Bares e Restaurantes</span>
+                            <span class="ml-auto text-xs bg-tu-orange text-white px-2 py-1 rounded" data-i18n="client_badge">Especialidade</span>
                         </div>
                     </div>
                 </div>
@@ -359,16 +359,16 @@
                 <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     <div class="w-full lg:w-1/2 fade-in-section">
                         <h2 class="font-display text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                            Seu negócio merece ser <span class="text-tu-orange">visto.</span><br>
-                            E merece ser <span class="text-tu-orange">escolhido.</span>
+                            <span data-i18n="purpose_title_1">Seu negócio merece ser</span> <span class="text-tu-orange" data-i18n="purpose_title_highlight_1">visto.</span><br>
+                            <span data-i18n="purpose_title_2">E merece ser</span> <span class="text-tu-orange" data-i18n="purpose_title_highlight_2">escolhido.</span>
                         </h2>
                         <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                            Ajudamos marcas a saírem da disputa por atenção e entrarem no jogo certo: <strong class="text-gray-900 dark:text-white">o da preferência.</strong>
+                            <span data-i18n="purpose_text">Ajudamos marcas a saírem da disputa por atenção e entrarem no jogo certo:</span> <strong class="text-gray-900 dark:text-white" data-i18n="purpose_text_bold">o da preferência.</strong>
                         </p>
                         <div class="flex flex-wrap items-center gap-6 text-gray-700 dark:text-gray-200 font-medium">
-                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> Estratégia</span>
-                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> Criatividade</span>
-                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> Execução Rápida</span>
+                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> <span data-i18n="purpose_tag_1">Estratégia</span></span>
+                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> <span data-i18n="purpose_tag_2">Criatividade</span></span>
+                            <span class="flex items-center bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full"><i class="fas fa-check-circle text-tu-orange mr-2"></i> <span data-i18n="purpose_tag_3">Execução Rápida</span></span>
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 fade-in-section">
@@ -383,8 +383,8 @@
         <section id="servicos" class="py-24 bg-tu-light dark:bg-tu-card">
             <div class="container mx-auto max-w-7xl px-4">
                 <div class="mb-16 text-center fade-in-section">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-4 dark:text-white">Nossos Serviços</h2>
-                    <p class="text-gray-500 dark:text-gray-400">Tudo o que sua marca precisa para se tornar impossível de ignorar.</p>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-4 dark:text-white" data-i18n="services_title">Nossos Serviços</h2>
+                    <p class="text-gray-500 dark:text-gray-400" data-i18n="services_subtitle">Tudo o que sua marca precisa para se tornar impossível de ignorar.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 relative">
@@ -393,8 +393,8 @@
                             <i class="fas fa-share-nodes"></i>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Social Media Completo</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white" data-i18n="service_1_title">Social Media Completo</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="service_1_desc">
                                 Estratégia, legendas, roteiros, planejamento e calendário editorial.
                             </p>
                         </div>
@@ -404,8 +404,8 @@
                             <i class="fas fa-pen-nib"></i>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Designer Dedicado</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white" data-i18n="service_2_title">Designer Dedicado</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="service_2_desc">
                                 Identidade visual, kits promocionais, posts, artes e campanhas com padrão profissional.
                             </p>
                         </div>
@@ -415,8 +415,8 @@
                             <i class="fas fa-video"></i>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Filmmaker / Vídeo</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white" data-i18n="service_3_title">Filmmaker / Vídeo</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="service_3_desc">
                                 Reels, bastidores, captura de fotos profissional e vídeos de impacto.
                             </p>
                         </div>
@@ -426,8 +426,8 @@
                             <i class="fas fa-chart-pie"></i>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Gestão de Tráfego</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white" data-i18n="service_4_title">Gestão de Tráfego</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="service_4_desc">
                                 Campanhas estratégicas para aumentar alcance, reservas, vendas e faturamento.
                             </p>
                         </div>
@@ -437,8 +437,8 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Gerente de Contas</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white" data-i18n="service_5_title">Gerente de Contas</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="service_5_desc">
                                 Atendimento próximo, organização, alinhamentos e entregas pontuais.
                             </p>
                         </div>
@@ -448,8 +448,8 @@
                             <i class="fas fa-bullhorn"></i>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white">Influenciadores</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            <h3 class="font-display text-xl font-bold mb-3 dark:text-white" data-i18n="service_6_title">Influenciadores</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="service_6_desc">
                                 Conexão com criadores regionais para ampliar visibilidade e atrair novos clientes.
                             </p>
                         </div>
@@ -467,11 +467,10 @@
                 
                 <div class="text-center max-w-4xl mx-auto mb-12 fade-in-section px-4">
                     <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 dark:text-white">
-                        Marketing que <span class="text-tu-orange">abre portas.</span> De verdade.
+                        <span data-i18n="diff_title">Marketing que</span> <span class="text-tu-orange" data-i18n="diff_title_highlight">abre portas.</span> <span data-i18n="diff_title_2">De verdade.</span>
                     </h2>
                     <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                        A <strong class="text-gray-900 dark:text-white">+TU</strong> não nasceu na teoria. 
-                        Nasceu da prática e da necessidade de resultado todos os dias.
+                        <span data-i18n="diff_subtitle">A</span> <strong class="text-gray-900 dark:text-white">+TU</strong> <span data-i18n="diff_subtitle_2">não nasceu na teoria. Nasceu da prática e da necessidade de resultado todos os dias.</span>
                     </p>
                 </div>
 
@@ -483,8 +482,8 @@
                             <img src="img/img1.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-layer-group text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Criativos em alta frequência</h3>
-                                <p class="text-white/90 text-sm">Volume com qualidade para sua marca não ser esquecida.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_1_title">Criativos em alta frequência</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_1_desc">Volume com qualidade para sua marca não ser esquecida.</p>
                             </div>
                         </div>
 
@@ -492,8 +491,8 @@
                             <img src="img/img2.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-chart-line text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Estratégia orientada a vendas</h3>
-                                <p class="text-white/90 text-sm">Converter seguidores em clientes reais.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_2_title">Estratégia orientada a vendas</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_2_desc">Converter seguidores em clientes reais.</p>
                             </div>
                         </div>
 
@@ -501,8 +500,8 @@
                             <img src="img/img3.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-fingerprint text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Conteúdo que gera memorização</h3>
-                                <p class="text-white/90 text-sm">Criamos narrativas que fixam na mente do seu consumidor.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_3_title">Conteúdo que gera memorização</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_3_desc">Criamos narrativas que fixam na mente do seu consumidor.</p>
                             </div>
                         </div>
 
@@ -510,8 +509,8 @@
                             <img src="img/img4.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-stopwatch text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Campanhas rápidas</h3>
-                                <p class="text-white/90 text-sm">Execução ágil para aproveitar todas as oportunidades.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_4_title">Campanhas rápidas</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_4_desc">Execução ágil para aproveitar todas as oportunidades.</p>
                             </div>
                         </div>
 
@@ -519,8 +518,8 @@
                             <img src="img/img5.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-users text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Linguagem alinhada</h3>
-                                <p class="text-white/90 text-sm">Falamos a língua do seu público para gerar conexão.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_5_title">Linguagem alinhada</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_5_desc">Falamos a língua do seu público para gerar conexão.</p>
                             </div>
                         </div>
 
@@ -528,8 +527,8 @@
                             <img src="img/img6.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-shield-heart text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Entregas consistentes</h3>
-                                <p class="text-white/90 text-sm">Sem "desculpas de agência". Cumprimos o que prometemos.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_6_title">Entregas consistentes</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_6_desc">Sem "desculpas de agência". Cumprimos o que prometemos.</p>
                             </div>
                         </div>
 
@@ -537,8 +536,8 @@
                             <img src="img/img1.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-layer-group text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Criativos em alta frequência</h3>
-                                <p class="text-white/90 text-sm">Volume com qualidade para sua marca não ser esquecida.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_1_title">Criativos em alta frequência</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_1_desc">Volume com qualidade para sua marca não ser esquecida.</p>
                             </div>
                         </div>
 
@@ -546,8 +545,8 @@
                             <img src="img/img2.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-chart-line text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Estratégia orientada a vendas</h3>
-                                <p class="text-white/90 text-sm">Converter seguidores em clientes reais.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_2_title">Estratégia orientada a vendas</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_2_desc">Converter seguidores em clientes reais.</p>
                             </div>
                         </div>
 
@@ -555,8 +554,8 @@
                             <img src="img/img3.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-fingerprint text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Conteúdo que gera memorização</h3>
-                                <p class="text-white/90 text-sm">Criamos narrativas que fixam na mente do seu consumidor.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_3_title">Conteúdo que gera memorização</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_3_desc">Criamos narrativas que fixam na mente do seu consumidor.</p>
                             </div>
                         </div>
 
@@ -564,8 +563,8 @@
                             <img src="img/img4.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-stopwatch text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Campanhas rápidas</h3>
-                                <p class="text-white/90 text-sm">Execução ágil para aproveitar todas as oportunidades.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_4_title">Campanhas rápidas</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_4_desc">Execução ágil para aproveitar todas as oportunidades.</p>
                             </div>
                         </div>
 
@@ -573,8 +572,8 @@
                             <img src="img/img5.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-users text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Linguagem alinhada</h3>
-                                <p class="text-white/90 text-sm">Falamos a língua do seu público para gerar conexão.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_5_title">Linguagem alinhada</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_5_desc">Falamos a língua do seu público para gerar conexão.</p>
                             </div>
                         </div>
 
@@ -582,8 +581,8 @@
                             <img src="img/img6.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="relative z-20 h-full flex flex-col justify-end p-8 text-white">
                                 <div class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 border border-white/30"><i class="fas fa-shield-heart text-2xl"></i></div>
-                                <h3 class="font-display text-2xl font-bold mb-2">Entregas consistentes</h3>
-                                <p class="text-white/90 text-sm">Sem "desculpas de agência". Cumprimos o que prometemos.</p>
+                                <h3 class="font-display text-2xl font-bold mb-2" data-i18n="diff_card_6_title">Entregas consistentes</h3>
+                                <p class="text-white/90 text-sm" data-i18n="diff_card_6_desc">Sem "desculpas de agência". Cumprimos o que prometemos.</p>
                             </div>
                         </div>
 
@@ -603,15 +602,15 @@
             
             <div>
                 <div class="mb-10">
-                    <span class="text-tu-orange font-bold tracking-widest text-xs uppercase mb-2 block">Performance Real</span>
+                    <span class="text-tu-orange font-bold tracking-widest text-xs uppercase mb-2 block" data-i18n="cases_pretitle">Performance Real</span>
                     <h2 class="font-display text-[2rem] md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                        Resultados que <br>
+                        <span data-i18n="cases_title_1">Resultados que</span> <br>
                         <span class="relative inline-block">
-                            <span class="relative z-10">transformam o jogo.</span>
+                            <span class="relative z-10" data-i18n="cases_title_highlight">transformam o jogo.</span>
                             <span class="absolute bottom-2 left-0 w-full h-5 bg-tu-orange/40 -z-10 rounded-sm"></span>
                         </span>
                     </h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-6 leading-relaxed">
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-6 leading-relaxed" data-i18n="cases_subtitle">
                         Não entregamos apenas posts. Entregamos métricas que fazem seu negócio crescer de verdade.
                     </p>
                 </div>
@@ -622,8 +621,8 @@
                             <i class="fas fa-arrow-trend-up text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Crescimento de Presença</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sua marca consolidada e com autoridade digital.</p>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg" data-i18n="cases_item_1_title">Crescimento de Presença</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-i18n="cases_item_1_desc">Sua marca consolidada e com autoridade digital.</p>
                         </div>
                     </div>
 
@@ -632,8 +631,8 @@
                             <i class="fas fa-sack-dollar text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Aumento de Vendas</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Estratégias focadas em conversão e ROI positivo.</p>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg" data-i18n="cases_item_2_title">Aumento de Vendas</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-i18n="cases_item_2_desc">Estratégias focadas em conversão e ROI positivo.</p>
                         </div>
                     </div>
 
@@ -642,8 +641,8 @@
                             <i class="fab fa-whatsapp text-2xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Máquina de Leads</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Mais reservas, orçamentos e clientes no WhatsApp.</p>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg" data-i18n="cases_item_3_title">Máquina de Leads</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-i18n="cases_item_3_desc">Mais reservas, orçamentos e clientes no WhatsApp.</p>
                         </div>
                     </div>
 
@@ -652,8 +651,8 @@
                             <i class="fas fa-palette text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-lg">Reposicionamento Visual</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Identidade profissional, moderna e consistente.</p>
+                            <h4 class="font-bold text-gray-900 dark:text-white text-lg" data-i18n="cases_item_4_title">Reposicionamento Visual</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-i18n="cases_item_4_desc">Identidade profissional, moderna e consistente.</p>
                         </div>
                     </div>
                 </div>
@@ -662,10 +661,10 @@
             <div class="bg-gray-50 dark:bg-[#121212] p-8 md:p-10 rounded-[2.5rem] border border-gray-200 dark:border-white/10 relative overflow-hidden">
                 
                 <div class="mb-8 text-center md:text-left">
-                    <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="cases_trust_title">
                         Quem confia na +TU?
                     </h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm">
+                    <p class="text-gray-500 dark:text-gray-400 text-sm" data-i18n="cases_trust_subtitle">
                         Expertise validada em diversos segmentos.
                     </p>
                 </div>
@@ -674,22 +673,22 @@
                     
                     <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
                         <i class="fas fa-utensils text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
-                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Restaurantes <br>& Bares</span>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors" data-i18n="cases_grid_1">Restaurantes <br>& Bares</span>
                     </div>
 
                     <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
                         <i class="fas fa-user-doctor text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
-                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Clínicas <br>& Consultórios</span>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors" data-i18n="cases_grid_2">Clínicas <br>& Consultórios</span>
                     </div>
 
                     <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
                         <i class="fas fa-bag-shopping text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
-                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Lojas <br>de Varejo</span>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors" data-i18n="cases_grid_3">Lojas <br>de Varejo</span>
                     </div>
 
                     <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-black/40 border border-gray-100 dark:border-white/5 hover:border-tu-orange hover:shadow-lg transition-all group aspect-square text-center">
                         <i class="fas fa-rocket text-3xl text-gray-400 dark:text-white/30 mb-4 group-hover:text-tu-orange transition-colors"></i>
-                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors">Novas <br>Marcas</span>
+                        <span class="font-bold text-gray-800 dark:text-white text-sm group-hover:text-tu-orange transition-colors" data-i18n="cases_grid_4">Novas <br>Marcas</span>
                     </div>
 
                     <div class="col-span-2 flex items-center justify-between p-6 rounded-2xl bg-gradient-to-r from-gray-900 to-black dark:from-white/10 dark:to-white/5 border border-gray-100 dark:border-white/5 text-white shadow-lg relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform">
@@ -699,8 +698,8 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="text-left">
-                                <span class="block font-bold text-sm">Empreendedores</span>
-                                <span class="block text-xs text-gray-400 group-hover:text-white transition-colors">Em fase de expansão</span>
+                                <span class="block font-bold text-sm" data-i18n="cases_grid_5_title">Empreendedores</span>
+                                <span class="block text-xs text-gray-400 group-hover:text-white transition-colors" data-i18n="cases_grid_5_sub">Em fase de expansão</span>
                             </div>
                         </div>
                         <i class="fas fa-arrow-right text-tu-orange relative z-10"></i>
@@ -727,10 +726,10 @@
                         <div class="w-full lg:w-3/5 p-8 md:p-12 lg:p-16 flex flex-col justify-center text-center lg:text-left z-10">
                             
                             <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                                Chegou a hora de fazer sua marca ser <span class="text-tu-orange">lembrada.</span>
+                                <span data-i18n="contact_title_1">Chegou a hora de fazer sua marca ser</span> <span class="text-tu-orange" data-i18n="contact_title_highlight">lembrada.</span>
                             </h2>
                             
-                            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n="contact_subtitle">
                                 Pare de gastar energia com o que não traz retorno. Atendemos negócios que buscam crescimento consistente, estratégia e presença real.
                             </p>
 
@@ -739,12 +738,12 @@
                                 <a href="https://api.whatsapp.com/send?phone=5513000000000" target="_blank"
                                     class="btn-sheen bg-tu-orange text-white font-display font-bold py-4 px-8 rounded-xl text-lg hover:bg-orange-600 shadow-neon transform hover:-translate-y-1 transition-all flex items-center gap-3 w-full sm:w-auto justify-center">
                                     <i class="fab fa-whatsapp text-2xl"></i>
-                                    <span>Falar com a +TU</span>
+                                    <span data-i18n="hero_btn">Falar com a +TU</span>
                                 </a>
 
                                 <div class="text-sm text-gray-500 dark:text-gray-400 font-medium px-4 py-2 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 flex items-center gap-2">
                                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                    <span>Agenda Aberta</span>
+                                    <span data-i18n="contact_status">Agenda Aberta</span>
                                 </div>
                             </div>
 
@@ -769,7 +768,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
                     <img src="img/logop.png" alt="+TU Logo" class="theme-logo h-10 w-auto mb-6 opacity-90 object-contain">
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6" data-i18n="footer_about">
                         Agência focada em performance e branding para negócios reais. Do balcão para o digital.
                     </p>
                 </div>
@@ -780,15 +779,15 @@
                         <span class="absolute -left-8 top-1 h-4 w-1 bg-tu-orange hidden md:block"></span>
                     </h4>
                     <ul class="space-y-3 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
-                        <li><a href="#quem-somos" class="hover:text-tu-orange transition-colors"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Quem Somos</a></li>
-                        <li><a href="#servicos" class="hover:text-tu-orange transition-colors"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Serviços</a></li>
-                        <li><a href="#diferenciais" class="hover:text-tu-orange transition-colors"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Diferenciais</a></li>
+                        <li><a href="#quem-somos" class="hover:text-tu-orange transition-colors" data-i18n="nav_about"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Quem Somos</a></li>
+                        <li><a href="#servicos" class="hover:text-tu-orange transition-colors" data-i18n="nav_services"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Serviços</a></li>
+                        <li><a href="#diferenciais" class="hover:text-tu-orange transition-colors" data-i18n="nav_diff"><i class="fas fa-chevron-right text-xs mr-2 text-tu-orange"></i> Diferenciais</a></li>
                     </ul>
                 </div>
 
                 <div class="md:border-l md:border-gray-100 md:dark:border-white/10 md:pl-8">
                     <h4 class="font-bold font-display text-gray-900 dark:text-white mb-6 text-lg relative inline-block">
-                        Contato
+                        <span data-i18n="footer_contact">Contato</span>
                         <span class="absolute -left-8 top-1 h-4 w-1 bg-tu-orange hidden md:block"></span>
                     </h4>
                     <ul class="space-y-4 text-gray-500 dark:text-gray-400">
@@ -816,10 +815,15 @@
             </div>
             
             <div class="text-center text-gray-400 pt-8 border-t border-gray-100 dark:border-white/5">
-                &copy; 2025 Agência +TU. Todos os direitos reservados.
+                &copy; 2025 Agência +TU. <span data-i18n="footer_rights">Todos os direitos reservados.</span>
             </div>
         </div>
     </footer>
+
+    <button id="lang-toggle-btn"
+        class="fixed bottom-20 right-6 z-50 w-12 h-12 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform group">
+        <span class="font-display font-bold text-xl" id="lang-indicator">🇧🇷</span>
+    </button>
 
     <button id="theme-toggle-btn"
         class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform">
