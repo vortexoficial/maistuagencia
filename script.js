@@ -16,7 +16,7 @@ function updateLogos() {
     });
 }
 
-// 1. SISTEMA DE TRADUÇÃO (I18N) - NOVO
+// 1. SISTEMA DE TRADUÇÃO (I18N)
 const translations = {
     'pt': {
         // NAV
@@ -29,10 +29,15 @@ const translations = {
         'hero_title_1': 'Existe um',
         'hero_title_highlight': 'erro silencioso',
         'hero_title_2': 'acabando com o potencial da sua marca.',
+        'hero_title_3': 'E talvez você ainda não tenha percebido.',
         'hero_subtitle_1': 'Se o seu negócio não é lembrado, ele não é escolhido. A',
         'hero_subtitle_2': 'nasceu para mudar isso.',
         'hero_cta_text': 'Quer aumentar presença, vendas e diferenciação?',
         'hero_btn': 'Falar com a +TU',
+
+        // MARQUEE (Apenas os termos que precisam de tradução)
+        'mq_traffic': 'Tráfego Pago',
+        'mq_launch': 'Lançamentos',
 
         // ABOUT
         'about_title_1': 'Nós entendemos a dor que',
@@ -41,7 +46,8 @@ const translations = {
         'about_foundation': 'Fundação: Abril 2024',
         'about_founders_title': 'Sócios & Donos de Bar',
         'about_founders_text_1': 'A +TU Agência foi criada por Gabriel Costa, Guilherme Villani e Rogélio Alves.',
-        'about_founders_text_2': 'Todos empresários do setor gastronômico, enfrentávamos o mesmo problema: "Agências que não acompanhavam o ritmo."',
+        'about_founders_text_2': 'Todos empresários do setor gastronômico, enfrentávamos o mesmo problema:',
+        'about_founders_quote': '"Agências que não acompanhavam o ritmo."',
         'about_fight_title': 'O que combatemos:',
         'about_fight_1': 'Criativos insuficientes',
         'about_fight_2': 'Campanhas fracas',
@@ -145,10 +151,15 @@ const translations = {
         'hero_title_1': 'There is a',
         'hero_title_highlight': 'silent mistake',
         'hero_title_2': 'killing your brand\'s potential.',
+        'hero_title_3': 'And maybe you haven\'t realized it yet.',
         'hero_subtitle_1': 'If your business isn\'t remembered, it isn\'t chosen.',
         'hero_subtitle_2': 'was born to change that.',
         'hero_cta_text': 'Want to increase presence, sales, and differentiation?',
         'hero_btn': 'Talk to +TU',
+
+        // MARQUEE
+        'mq_traffic': 'Paid Traffic',
+        'mq_launch': 'Launches',
 
         // ABOUT
         'about_title_1': 'We understand the pain',
@@ -157,7 +168,8 @@ const translations = {
         'about_foundation': 'Founded: April 2024',
         'about_founders_title': 'Partners & Bar Owners',
         'about_founders_text_1': '+TU Agency was created by Gabriel Costa, Guilherme Villani, and Rogélio Alves.',
-        'about_founders_text_2': 'All entrepreneurs in the gastronomy sector, we faced the same problem: "Agencies that couldn\'t keep up."',
+        'about_founders_text_2': 'All entrepreneurs in the gastronomy sector, we faced the same problem:',
+        'about_founders_quote': '"Agencies that couldn\'t keep up."',
         'about_fight_title': 'What we fight:',
         'about_fight_1': 'Insufficient creatives',
         'about_fight_2': 'Weak campaigns',
@@ -200,7 +212,7 @@ const translations = {
         'service_6_title': 'Influencers',
         'service_6_desc': 'Connection with regional creators to expand visibility and attract new customers.',
 
-        // DIFFERENTIALS (CARDS)
+        // DIFFERENTIALS
         'diff_title': 'Marketing that',
         'diff_title_highlight': 'opens doors.',
         'diff_title_2': 'For real.',
@@ -260,7 +272,6 @@ function updateLanguage(lang) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = translations[lang][key];
             } else {
-                // Se houver formatação HTML dentro da tradução no futuro, use innerHTML
                 el.innerText = translations[lang][key];
             }
         }
